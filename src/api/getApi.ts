@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: 'http://localhost:3000/api',
-  timeout: 1000,
+  baseURL: import.meta.env.VITE_API_URL,
+  timeout: Number(import.meta.env.VITE_API_TIMEOUT),
   headers: {'X-Custom-Header': 'foobar'}
 });
