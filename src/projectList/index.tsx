@@ -34,10 +34,15 @@ export const VerProjeto = () => {
                             <p>{selectedImage?.descricao}</p>
 
                             {selectedImage && (
+                                // <img
+                                //     src={`${import.meta.env.VITE_API_URL}${selectedImage.arquivo}`}
+                                //     alt={selectedImage.titulo}
+                                // />
                                 <img
-                                    src={`${import.meta.env.VITE_API_URL}${selectedImage.arquivo}`}
+                                    src={selectedImage.arquivo}
                                     alt={selectedImage.titulo}
                                 />
+
                             )}
                         </Preview>
                     </div>
@@ -51,12 +56,19 @@ export const VerProjeto = () => {
 
                     <Gallery>
                         {projeto.imagens?.map((img: ProjetoImagem, index: number) => (
+                            // <img
+                            //     key={index}
+                            //     src={`${import.meta.env.VITE_API_URL}${img.arquivo}`}
+                            //     alt={img.titulo}
+                            //     onClick={() => setSelectedImage(img)}
+                            // />
                             <img
                                 key={index}
                                 src={`${import.meta.env.VITE_API_URL}${img.arquivo}`}
                                 alt={img.titulo}
                                 onClick={() => setSelectedImage(img)}
                             />
+
                         ))}
                     </Gallery>
                 </Left>
