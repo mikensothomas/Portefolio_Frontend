@@ -35,7 +35,7 @@ export const VerProjeto = () => {
 
                             {selectedImage && (
                                 <img
-                                    src={`http://localhost:3000${selectedImage.arquivo}`}
+                                    src={`${import.meta.env.VITE_API_URL}${selectedImage.arquivo}`}
                                     alt={selectedImage.titulo}
                                 />
                             )}
@@ -53,7 +53,7 @@ export const VerProjeto = () => {
                         {projeto.imagens?.map((img: ProjetoImagem, index: number) => (
                             <img
                                 key={index}
-                                src={`http://localhost:3000${img.arquivo}`}
+                                src={`${import.meta.env.VITE_API_URL}${img.arquivo}`}
                                 alt={img.titulo}
                                 onClick={() => setSelectedImage(img)}
                             />
