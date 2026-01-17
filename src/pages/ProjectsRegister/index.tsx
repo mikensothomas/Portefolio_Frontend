@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { api } from "../../api/getApi";
 import { projetoSchema } from "../../validation/projects.schema";
-import type { ProjetoSchema } from "../../validation/projects.schema";
+import type { ProjetoDTO } from "../../validation/projects.schema";
 import { Container, ContainerGeral, ContainerSecondOne, ContainerSecondTwo } from "./style";
 
 export const Register = () => {
@@ -11,7 +11,7 @@ export const Register = () => {
     const [savedImages, setSavedImages] = useState<{ file: File; titulo: string; descricao: string }[]>([]);
     const fileInputRef = useRef<HTMLInputElement | null>(null);
 
-    const { register, handleSubmit, watch, setValue } = useForm<ProjetoSchema & { imagemTitulo?: string[], imagemDescricao?: string[] }>({
+    const { register, handleSubmit, watch, setValue } = useForm<ProjetoDTO & { imagemTitulo?: string[], imagemDescricao?: string[] }>({
         resolver: zodResolver(projetoSchema),
     });
 
@@ -38,7 +38,7 @@ export const Register = () => {
         }
     };
 
-    const onSubmit = async (data: ProjetoSchema & { imagemTitulo?: string[], imagemDescricao?: string[] }) => {
+    const onSubmit = async (data: ProjetoDTO & { imagemTitulo?: string[], imagemDescricao?: string[] }) => {
         try {
             const formData = new FormData();
 

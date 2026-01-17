@@ -39,4 +39,4 @@ export const projetoSchema = z.object({
 
 });
 
-export type ProjetoSchema = z.infer<typeof projetoSchema>;
+export type ProjetoDTO = z.infer<typeof projetoSchema>;

@@ -3,7 +3,7 @@ import { Conatiner } from "./style"
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import type z from "zod";
-import { MessageSchema } from "../../validation/messageSchema";
+import { MessageSchema, type MessageDTO } from "../../validation/messageSchema";
 import { api } from "../../api/getApi";
 
 type FormData = z.infer<typeof MessageSchema>;
@@ -14,7 +14,7 @@ export const Contact = () => {
         resolver: zodResolver(MessageSchema)
     });
 
-    const onSubmit = async (data: MessageSchema) => {
+    const onSubmit = async (data: MessageDTO) => {
             try {
                 const formData = new FormData();
     

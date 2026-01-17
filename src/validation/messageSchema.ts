@@ -7,4 +7,4 @@ export const MessageSchema = z.object({
     message: z.string().nonempty("Escrever a mensagem"),
 });
 
-export type MessageSchema = z.infer<typeof MessageSchema>;
+export type MessageDTO = z.infer<typeof MessageSchema>;
