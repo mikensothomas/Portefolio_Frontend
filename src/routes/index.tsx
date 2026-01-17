@@ -5,8 +5,9 @@ import { Especialidades } from "../pages/especialidade"
 import { Sobre } from "../pages/sobre"
 import { Projetos } from "../pages/projetos"
 import { Contact } from "../pages/contact"
-import { VerProjeto } from "../projectList"
+import { VerProjeto } from "../pages/projectList"
 import { Login } from "../pages/login"
+import { EditeProjects } from "../pages/editeProjects"
 
 export const AppRouter = () => {
     return (
@@ -19,6 +20,7 @@ export const AppRouter = () => {
             <Route path="/sobre" element={<Sobre />} />
             <Route path="/projetos" element={<Projetos />} />
             <Route path="/Login" element={<Login />} />
+            <Route path="/editeProjects/:id" element={<EditeProjects />} />
             <Route path="*" element={<h1>Rota não encontrada</h1>} />
         </Routes>
     )

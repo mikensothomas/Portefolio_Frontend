@@ -34,6 +34,14 @@ export const Left = styled.div`
         margin-bottom: 20px;
         cursor: pointer;
         font-weight: bold;
+
+        &:hover {
+            background: #00cc06;
+        }
+
+        &:active {
+            background: #009904;
+        }
     }
 
     h1 {
@@ -117,3 +125,31 @@ export const Gallery = styled.div`
         border-radius: 10px;
     }
 `;
+
+export const ButtonAndT = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 20px;
+`
+
+export const ButtonEdDl = styled.div`
+    margin-left: auto;
+    display: flex;
+    gap: 10px;
+    .delete {
+        background: #ff0000;
+        padding: 10px 20px;
+        border-radius: 10px;
+        border: none;
+        margin-bottom: 20px;
+        cursor: pointer;
+        font-weight: bold;
+
+        &:hover {
+            background: #cc0000;
+        }
+        &:active {
+            background: #990000;
+        }
+    }
+`

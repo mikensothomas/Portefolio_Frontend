@@ -1,7 +1,7 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import { Container, Content, Left, Gallery, Preview } from "./style";
+import { Container, Content, Left, Gallery, Preview, ButtonAndT, ButtonEdDl } from "./style";
 import { useState } from "react";
-import type { ProjetoImagem } from "../types/types";
+import type { ProjetoImagem } from "../../types/types";
 
 export const VerProjeto = () => {
   const navigate = useNavigate();
@@ -23,8 +23,14 @@ export const VerProjeto = () => {
       <Content>
         <Left>
           <div className="bottonAndTitle">
-            <button onClick={() => navigate(-1)}>Voltar</button>
+            <ButtonAndT>
+              <button onClick={() => navigate(-1)}>Voltar</button>
             <h1>{projeto.titulo}</h1>
+            </ButtonAndT>
+            <ButtonEdDl>
+              <button onClick={() => navigate(`/editeProjects/${projeto._id}`)}>Editar Projeto</button>
+              <button className="delete">Deletar Projeto</button>
+            </ButtonEdDl>
           </div>
 
           <p>{projeto.descricao}</p>
