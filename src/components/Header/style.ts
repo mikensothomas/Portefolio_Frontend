@@ -30,6 +30,28 @@ export const ContainerHeader = styled.div`
         box-shadow: 0px 0px 8px #00ff08;
         transform: scale(1.05);
     }
+
+    .logout {
+        list-style: none;
+        margin-top: 50px;
+        font-size: 20px;
+        color: #5c5c5c;
+        font-weight: 500;
+        cursor: pointer;
+
+        &:hover {
+            color: #ff0000;
+        }
+
+        &:active {
+            transform: scale(0.95);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+    }
 `
 
 export const ContainerAndDash = styled.div`
@@ -48,7 +70,7 @@ export const Menu = styled.div`
     ul {
         padding-top: 50px;
         display: flex;
-        gap: 80px;
+        gap: 30px;
     }
 
     li,

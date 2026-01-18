@@ -1,15 +1,16 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { Container, Content, Left, Gallery, Preview, ButtonAndT, ButtonEdDl } from "./style";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import type { ProjetoImagem } from "../../types/types";
 import { api } from "../../api/getApi";
+import { AuthContext } from "../../contexts/AuthContext";
 
 export const VerProjeto = () => {
   const navigate = useNavigate();
   const { state } = useLocation();
   const projeto = state?.projeto;
-
   const [selectedImage, setSelectedImage] = useState<ProjetoImagem | null>(null);
+  const { isAuthenticated } = useContext(AuthContext);
 
   if (!projeto) {
     return (
@@ -21,6 +22,11 @@ export const VerProjeto = () => {
 
   const habdleDelete = async () => {
 
+    if (!isAuthenticated) {
+      navigate("/login");
+      return;
+    }
+    
     const confirmDelete = window.confirm(`Tem certeza que deseja deletar o projeto "${projeto.titulo}"?`);
     if (!confirmDelete) return;
 

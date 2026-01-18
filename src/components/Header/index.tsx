@@ -1,11 +1,20 @@
 import { ContainerAndDash, ContainerHeader, Dash, Menu } from "./style"
 import Icone from "../../assets/IconeMT.png"
-import { Link, useLocation, useNavigate  } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthContext";
+import { useContext } from "react";
 
 
 export const Header = () => {
     const location = useLocation();
     const navigate = useNavigate();
+    const { logout, isAuthenticated } = useContext(AuthContext);
+
+    const handleLogout = () => {
+        logout();
+        navigate("/projetos");
+    }
+
     return (
         <ContainerAndDash>
             <ContainerHeader>
@@ -29,6 +38,15 @@ export const Header = () => {
                         </li>
                     </ul>
                 </Menu>
+                {
+                    isAuthenticated && (
+                        <ul>
+                            <li className="logout" onClick={handleLogout}>
+                                Logout
+                            </li>
+                        </ul>
+                    )
+                }
                 <button onClick={() => navigate("/contact")}>Contato</button>
             </ContainerHeader>
             <Dash>

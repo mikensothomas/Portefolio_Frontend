@@ -175,30 +175,72 @@ export const EditeProjects = () => {
 
         <ContainerGeral>
           <ContainerSecondOne>
-            <input {...register("titulo")} placeholder="Título" />
-            <textarea {...register("descricao")} placeholder="Descrição" />
-            <input {...register("tecnologias")} placeholder="Tecnologias" />
+            <div className="form-group">
+              <label>Título do Projeto</label>
+              <input {...register("titulo")} placeholder="Título" />
+            </div>
+            <div className="form-group">
+              <label>Descrição do Projeto</label>
+              <textarea {...register("descricao")} placeholder="Descrição" />
+            </div>
+            <div className="form-group">
+              <label>Tecnologias</label>
+              <input {...register("tecnologias")} placeholder="Tecnologias" />
+            </div>
 
-            <select {...register("categoria")}>
-              <option value="">Selecione</option>
-              <option value="FRONT_END">Frontend</option>
-              <option value="BACK_END">Backend</option>
-              <option value="FULL_STACK">Full Stack</option>
-            </select>
+            <div className="form-group">
+              <label>Categoria</label>
+              <select {...register("categoria")}>
+                <option value="">Selecione</option>
+                <option value="FRONT_END">Frontend</option>
+                <option value="BACK_END">Backend</option>
+                <option value="FULL_STACK">Full Stack</option>
+              </select>
+            </div>
 
-            <input {...register("link_github")} placeholder="GitHub" />
+            <div className="form-group">
+              <label>Link do GitHub</label>
+              <input {...register("link_github")} placeholder="GitHub" />
+            </div>
+
             <button type="submit">Salvar Projeto</button>
           </ContainerSecondOne>
 
           <ContainerSecondTwo>
             {project?.imagem_capa && (
-              <div>
+              <div className="form-group">
                 <p>Imagem de capa atual</p>
                 <img src={project.imagem_capa} width={200} />
               </div>
             )}
 
-            <input type="file" {...register("imagem_capa")} />
+            <div className="form-group">
+              <label>Status</label>
+              <select {...register("status")}>
+                <option value="">Selecione</option>
+                <option value="DESENVOLVENDO">Desenvolvendo</option>
+                <option value="CONCLUINDO">Concluindo</option>
+                <option value="CONCLUIDO">Concluído</option>
+              </select>
+            </div>
+            <div className="form-group checkbox">
+              <input type="checkbox" {...register("repositorio_privado")} />
+              <label>Repositório Privado</label>
+            </div>
+            <div className="form-group">
+              <label>Imagem de Capa</label>
+              <input type="file" {...register("imagem_capa")} />
+            </div>
+
+            <div className="form-group">
+              <label>Tags</label>
+              <input {...register("tags")} placeholder="Ex: educação, multilíngue, aprendizado" />
+            </div>
+
+            <div className="form-group">
+              <label>Vídeo Demo (YouTube ou arquivo)</label>
+              <input {...register("video_demo")} placeholder="https://youtube.com/embed/..." />
+            </div>
 
             <h3>Imagens atuais</h3>
             {existingImages.map((img, index) => (
