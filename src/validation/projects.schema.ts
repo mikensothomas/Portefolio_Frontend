@@ -25,8 +25,8 @@ export const projetoSchema = z.object({
         }, `Max image size is 5MB.`)
         .refine(
             (files) => ACCEPTED_IMAGE_MIME_TYPES.includes(files?.[0]?.type),
-            "Only .jpg, .jpeg, .png and .webp formats are supported."
-        ),
+            "Only .jpg, .jpeg, .png and .webp formats are supported."),
+
     imagens: z
         .custom<FileList>()
         .refine((files) => files && files.length > 0, "Envie pelo menos uma imagem")

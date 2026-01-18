@@ -10,6 +10,7 @@ export type CategoryProjects =
     | "FRONT_END";
 
 export interface Imagem {
+    _id: string;
     titulo: string;
     descricao: string;
     arquivo: string;
