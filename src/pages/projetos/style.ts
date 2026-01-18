@@ -3,6 +3,10 @@ import { SlArrowLeft } from "react-icons/sl";
 import { SlArrowRight } from "react-icons/sl";
 
 export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
   h1 {
     margin-top: 30px;
     margin-bottom: 20px;
@@ -10,9 +14,14 @@ export const Container = styled.div`
     color: #fff;
 
     span {
-        color: #00ff08;
+      color: #00ff08;
     }
   }
+`;
+
+export const ContentWrapper = styled.div`
+  flex: 1;
+  position: relative;
 `;
 
 export const Projects = styled.div`

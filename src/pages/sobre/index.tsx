@@ -1,11 +1,11 @@
 import { Header } from "../../components/Header"
-import { ImageAndText, TitleAndParagraph } from "./style"
+import { Container, ImageAndText, TitleAndParagraph } from "./style"
 import ImageMikensonThomas from "../../assets/MikensonImage.png"
 import { Footer } from "../../components/Footer"
 
 export const Sobre = () => {
     return (
-        <>
+        <Container>
             <Header />
             <ImageAndText>
                 <img src={ImageMikensonThomas} alt="Mikenson thomas" />
@@ -16,6 +16,6 @@ export const Sobre = () => {
                 </TitleAndParagraph>
             </ImageAndText>
             <Footer/>
-        </>
+        </Container>
     )
 }

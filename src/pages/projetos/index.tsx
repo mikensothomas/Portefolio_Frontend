@@ -1,6 +1,6 @@
 import { Footer } from "../../components/Footer"
 import { Header } from "../../components/Header"
-import { Container, Left, Projects, Right } from "./style"
+import { Container, ContentWrapper, Left, Projects, Right } from "./style"
 import { api } from "../../api/getApi"
 import { useEffect, useState } from "react"
 import type { Portfolio } from "../../types/types"
@@ -29,46 +29,53 @@ export const Projetos = () => {
     return (
         <Container>
             <Header />
-            <h1>MEUS <span>PROJETOS.</span></h1>
 
-            <Left className="btn-prev" />
+            <ContentWrapper>
+                <h1>MEUS <span>PROJETOS.</span></h1>
 
-            <Projects>
-                <div className="imgBox">
-                    <Swiper
-                        modules={[Navigation]}
-                        navigation={{
-                            nextEl: ".btn-next",
-                            prevEl: ".btn-prev",
-                        }}
-                        slidesPerView={3}
-                        spaceBetween={30}
-                        loop={true}
-                        breakpoints={{
-                            0: { slidesPerView: 1, spaceBetween: 20 },
-                            600: { slidesPerView: 2, spaceBetween: 20 },
-                            900: { slidesPerView: 3, spaceBetween: 30 },
-                        }}
-                    >
-                        {projects.map((project) => (
-                            <SwiperSlide key={project._id}>
-                                <div className="card">
-                                    <img
-                                        src={project.imagem_capa}
-                                        alt={project.titulo}
-                                    />
+                <Left className="btn-prev" />
 
-                                    <h2 onClick={() => navigate(`/verProjeto/${project._id}`, { state: { projeto: project } })}>{project.titulo}</h2>
-                                </div>
-                            </SwiperSlide>
-                        ))}
-                    </Swiper>
-                </div>
-            </Projects>
+                <Projects>
+                    <div className="imgBox">
+                        <Swiper
+                            modules={[Navigation]}
+                            navigation={{
+                                nextEl: ".btn-next",
+                                prevEl: ".btn-prev",
+                            }}
+                            slidesPerView={3}
+                            spaceBetween={30}
+                            loop={true}
+                            breakpoints={{
+                                0: { slidesPerView: 1, spaceBetween: 20 },
+                                600: { slidesPerView: 2, spaceBetween: 20 },
+                                900: { slidesPerView: 3, spaceBetween: 30 },
+                            }}
+                        >
+                            {projects.map((project) => (
+                                <SwiperSlide key={project._id}>
+                                    <div className="card">
+                                        <img src={project.imagem_capa} alt={project.titulo} />
+                                        <h2
+                                            onClick={() =>
+                                                navigate(`/verProjeto/${project._id}`, {
+                                                    state: { projeto: project },
+                                                })
+                                            }
+                                        >
+                                            {project.titulo}
+                                        </h2>
+                                    </div>
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
+                    </div>
+                </Projects>
 
-            <Right className="btn-next" />
+                <Right className="btn-next" />
+            </ContentWrapper>
 
             <Footer />
         </Container>
-    )
+    );
 }

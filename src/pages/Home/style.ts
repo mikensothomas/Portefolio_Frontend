@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Conainer = styled.div`
     height: 100vh;
     width: 100vw;
+    min-height: 100vh;
 `
 
 export const ContainerInformation = styled.div`
