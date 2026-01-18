@@ -2,6 +2,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { Container, Content, Left, Gallery, Preview, ButtonAndT, ButtonEdDl } from "./style";
 import { useState } from "react";
 import type { ProjetoImagem } from "../../types/types";
+import { api } from "../../api/getApi";
 
 export const VerProjeto = () => {
   const navigate = useNavigate();
@@ -18,6 +19,20 @@ export const VerProjeto = () => {
     );
   }
 
+  const habdleDelete = async () => {
+
+    const confirmDelete = window.confirm(`Tem certeza que deseja deletar o projeto "${projeto.titulo}"?`);
+    if (!confirmDelete) return;
+
+    try {
+      await api.delete(`/deleteProject/${projeto._id}`);
+      navigate(-1);
+    } catch (error) {
+      console.error("Erro ao deletar o projeto:", error);
+      alert("Erro ao deletar o projeto!");
+    }
+  }
+
   return (
     <Container>
       <Content>
@@ -29,7 +44,7 @@ export const VerProjeto = () => {
             </ButtonAndT>
             <ButtonEdDl>
               <button onClick={() => navigate(`/editeProjects/${projeto._id}`)}>Editar Projeto</button>
-              <button className="delete">Deletar Projeto</button>
+              <button className="delete" onClick={habdleDelete}>Deletar Projeto</button>
             </ButtonEdDl>
           </div>
 

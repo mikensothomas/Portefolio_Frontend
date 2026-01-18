@@ -51,14 +51,14 @@ export const Projetos = () => {
                         }}
                     >
                         {projects.map((project) => (
-                            <SwiperSlide key={project.id}>
+                            <SwiperSlide key={project._id}>
                                 <div className="card">
                                     <img
                                         src={project.imagem_capa}
                                         alt={project.titulo}
                                     />
 
-                                    <h2 onClick={() => navigate("/verProjeto", { state: { projeto: project } })}>{project.titulo}</h2>
+                                    <h2 onClick={() => navigate(`/verProjeto/${project._id}`, { state: { projeto: project } })}>{project.titulo}</h2>
                                 </div>
                             </SwiperSlide>
                         ))}

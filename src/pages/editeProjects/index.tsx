@@ -8,7 +8,7 @@ import {
   ContainerSecondOne,
   ContainerSecondTwo,
 } from "./style";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import type { Imagem, Portfolio } from "../../types/types";
 import {
   projetoEditSchema,
@@ -21,6 +21,7 @@ export const EditeProjects = () => {
   const [project, setProject] = useState<Portfolio | null>(null);
   const [existingImages, setExistingImages] = useState<Imagem[]>([]);
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
+  const navigate = useNavigate();
   const [savedImages, setSavedImages] = useState<
     { file: File; titulo: string; descricao: string }[]
   >([]);
@@ -159,8 +160,8 @@ export const EditeProjects = () => {
       await api.put(`/projects/${id}`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
+      navigate(-1);
 
-      alert("Projeto editado com sucesso!");
     } catch (error) {
       console.error(error);
       alert("Erro ao editar o projeto!");

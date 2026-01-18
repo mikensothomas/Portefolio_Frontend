@@ -17,7 +17,7 @@ export interface Imagem {
 }
 
 export interface Portfolio {
-    id: string;
+    _id: string;
     titulo: string;
     descricao: string;
     tecnologias: string[];
@@ -48,3 +48,15 @@ export interface Projeto {
     tags?: string[];
     imagens?: ProjetoImagem[];
 }
+
+export interface User {
+  email: string;
+  password: string;
+}
+
+export type AuthContextType = {
+    isAuthenticated: boolean;
+    user: User | null;
+    login: (token: string, userData: User) => void;
+    logout: () => void;
+};

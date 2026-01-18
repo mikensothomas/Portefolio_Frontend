@@ -8,20 +8,28 @@ import { Contact } from "../pages/contact"
 import { VerProjeto } from "../pages/projectList"
 import { Login } from "../pages/login"
 import { EditeProjects } from "../pages/editeProjects"
+import { PrivateRoute } from "./PrivateRoute"
 
 export const AppRouter = () => {
     return (
         <Routes>
+
             <Route path="/" element={<Home />} />
-            <Route path="/register" element={<Register />} />
             <Route path="/especialidades" element={<Especialidades />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/verProjeto" element={<VerProjeto />} />
+            <Route path="/verProjeto/:id" element={<VerProjeto />} />
             <Route path="/sobre" element={<Sobre />} />
             <Route path="/projetos" element={<Projetos />} />
             <Route path="/Login" element={<Login />} />
-            <Route path="/editeProjects/:id" element={<EditeProjects />} />
+
+            <Route element={<PrivateRoute />}>
+                <Route path="/register" element={<Register />} />
+                <Route path="/editeProjects/:id" element={<EditeProjects />} />
+            </Route>
+
+
             <Route path="*" element={<h1>Rota não encontrada</h1>} />
+
         </Routes>
     )
 }

@@ -16,6 +16,7 @@ export const Header = () => {
                         <li><a href="/especialidades" className={location.pathname === "/especialidades" ? "active" : ""}>Especialidades</a></li>
                         <li><a href="/sobre" className={location.pathname === "/sobre" ? "active" : ""}>Sobre</a></li>
                         <li><a href="/projetos" className={location.pathname === "/projetos" ? "active" : ""}>Projetos</a></li>
+                        <li><a href="/register" className={location.pathname === "/register" ? "active" : ""}>R. Projetos</a></li>
                     </ul>
                 </Menu>
                 <button onClick={() => window.location.href = "/contact"}>Contato</button>
