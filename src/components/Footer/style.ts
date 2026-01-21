@@ -4,18 +4,17 @@ import { MdOutlineEmail } from "react-icons/md";
 import styled from "styled-components";
 
 export const Container = styled.div`
-    padding: 30px;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    height: 90px;
+    height: 60px;
     width: 100vw;
 `
 
 export const Dash = styled.div`
     p {
         height: 1px;
-        width: 93vw;
+        width: 100%;
         background-color: #00ff08;
     }
 `
