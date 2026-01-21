@@ -68,9 +68,9 @@ export const VerProjeto = () => {
             )}
           </Preview>
 
-          <div className="tags">
-            {projeto.tags?.map((tag: string, index: number) => (
-              <span key={index}>{tag}</span>
+          <div className="tecnologias">
+            {projeto.tecnologias?.map((tecnologias: string, index: number) => (
+              <span key={index}>{tecnologias}</span>
             ))}
           </div>
 

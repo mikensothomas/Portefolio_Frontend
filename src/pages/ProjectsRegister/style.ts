@@ -5,6 +5,7 @@ export const Container = styled.div`
   justify-content: center;
   align-items: flex-start;
   min-height: 100vh;
+  min-width: 100vw;
   padding: 50px 20px;
   background: var(--color-gray-900);
 

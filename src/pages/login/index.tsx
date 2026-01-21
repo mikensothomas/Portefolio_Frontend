@@ -4,7 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import type z from "zod";
 import { api } from "../../api/getApi";
 import { LoginSchema, type LoginDTO } from "../../validation/loginSchema";
-import { Conatiner } from "./style";
+import { Conatiner, Containers } from "./style";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
@@ -36,7 +36,7 @@ export const Login = () => {
   };
 
   return (
-    <>
+    <Containers>
       <Header />
       <Conatiner>
         <h1>FALA <span>COMIGO.</span></h1>
@@ -50,6 +50,6 @@ export const Login = () => {
           <button type="submit">Entrar</button>
         </form>
       </Conatiner>
-    </>
+    </Containers>
   );
 };

@@ -1,5 +1,8 @@
 import styled from "styled-components";
 
+export const Containers = styled.div`
+    min-width: 100vw;
+`
 export const Conatiner = styled.div`
     color: #fff;
     padding: 10px 400px;
