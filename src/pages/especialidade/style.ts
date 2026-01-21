@@ -1,4 +1,4 @@
-import { FaCloudUploadAlt, FaLaptopCode, FaProjectDiagram, FaServer } from "react-icons/fa";
+import { FaLaptopCode, FaServer } from "react-icons/fa";
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -20,8 +20,7 @@ export const ContainerEspacialidade = styled.div`
     display: flex;
     justify-content: space-between;
     gap: 50px;
-    padding-left: 40px;
-    padding-right: 40px;
+    padding: 0 80px 0 80px;
 
     div> h3, p {
         color: #fff;
@@ -30,7 +29,7 @@ export const ContainerEspacialidade = styled.div`
     div {
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 30px;
         height: 300px;
         margin-top: 100px;
         border-radius: 30px;
@@ -60,16 +59,6 @@ export const FrontFaLaptopCode = styled(FaLaptopCode)`
     margin: 15px;
 `
 export const BackFaServer = styled(FaServer)`
-    color: #00ff08;
-    font-size: 80px;
-    margin: 15px;
-`
-export const IntegreFaProjectDiagram = styled(FaProjectDiagram)`
-    color: #00ff08;
-    font-size: 80px;
-    margin: 15px;
-`
-export const DevFaCloudUploadAlt = styled(FaCloudUploadAlt)`
     color: #00ff08;
     font-size: 80px;
     margin: 15px;
