@@ -74,8 +74,10 @@ export const Projects = styled.div`
     background: rgba(0, 0, 0, 0.6);
     opacity: 0;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 20px;
     transition: opacity 0.6s ease;
 
     color: #fff;
@@ -88,6 +90,19 @@ export const Projects = styled.div`
       opacity: 1;
       transform: translateY(0);
     }
+  }
+  .card h2 span {
+    font-size: 20px;
+  }
+
+  .card h2 span:nth-child(2) {
+    color: #4caf50;
+    font-size: 14px;
+  }
+
+  .card h2 span:nth-child(3) {
+    color: #ff9800;
+    font-weight: bold;
   }
 
   img {

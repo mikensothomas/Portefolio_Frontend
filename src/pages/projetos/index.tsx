@@ -63,7 +63,9 @@ export const Projetos = () => {
                                                 })
                                             }
                                         >
-                                            {project.titulo}
+                                            <span>{project.titulo}</span>
+                                            <span>{project.categoria}</span>
+                                            <span>{project.status}</span>
                                         </h2>
                                     </div>
                                 </SwiperSlide>
