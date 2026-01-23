@@ -52,6 +52,35 @@ export const ContainerHeader = styled.div`
             color: inherit;
         }
     }
+
+    .messages,
+    .register,
+    .login {
+        list-style: none;
+        margin-top: 50px;
+        font-size: 20px;
+        color: #5c5c5c;
+        font-weight: 500;
+        cursor: pointer;
+
+        &:hover {
+            color: #37E359;
+        }
+
+        &:active {
+            transform: scale(0.95);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+    }
+
+    .logoutUl {
+        display: flex;
+        gap: 20px;
+    }
 `
 
 export const ContainerAndDash = styled.div`

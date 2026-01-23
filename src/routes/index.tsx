@@ -9,6 +9,7 @@ import { VerProjeto } from "../pages/projectList"
 import { Login } from "../pages/login"
 import { EditeProjects } from "../pages/editeProjects"
 import { PrivateRoute } from "./PrivateRoute"
+import { MessagesList } from "../pages/messagesList"
 
 export const AppRouter = () => {
     return (
@@ -25,6 +26,7 @@ export const AppRouter = () => {
             <Route element={<PrivateRoute />}>
                 <Route path="/register" element={<Register />} />
                 <Route path="/editeProjects/:id" element={<EditeProjects />} />
+                <Route path="MessagesList" element={<MessagesList />} />
             </Route>
 
 

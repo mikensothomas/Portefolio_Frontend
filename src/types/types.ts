@@ -34,7 +34,7 @@ export interface Portfolio {
 }
 
 export interface ProjetoImagem {
-    id: number;
+    _id: number;
     titulo: string;
     arquivo: string;
     descricao: string;
@@ -50,8 +50,8 @@ export interface Projeto {
 }
 
 export interface User {
-  email: string;
-  password: string;
+    email: string;
+    password: string;
 }
 
 export type AuthContextType = {
@@ -60,3 +60,12 @@ export type AuthContextType = {
     login: (token: string, userData: User) => void;
     logout: () => void;
 };
+
+export type MessagesTypes = {
+    _id: string;
+    name: string;
+    email: string;
+    telefone: string;
+    message: string;
+    createdAt: string
+}

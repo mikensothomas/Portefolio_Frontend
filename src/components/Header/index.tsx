@@ -33,16 +33,29 @@ export const Header = () => {
                         <li>
                             <Link to="/projetos" className={location.pathname === "/projetos" ? "active" : ""}>Projetos</Link>
                         </li>
-                        <li>
-                            <Link to="/register" className={location.pathname === "/register" ? "active" : ""}>R. Projetos</Link>
-                        </li>
                     </ul>
                 </Menu>
                 {
                     isAuthenticated && (
-                        <ul>
+                        <ul className="logoutUl">
+                            <li className="register">
+                                <Link to="/register" className={location.pathname === "/register" ? "active" : ""}>R. Projetos</Link>
+                            </li>
+                            <li className="messages">
+                                <Link to="/MessagesList" className={location.pathname === "/messagesList" ? "active" : ""}>Messages</Link>
+                            </li>
                             <li className="logout" onClick={handleLogout}>
                                 Logout
+                            </li>
+                        </ul>
+                    )
+                }
+
+                {
+                    !isAuthenticated && (
+                        <ul className="logoutUl">
+                            <li className="login">
+                                <Link to="/Login" className={location.pathname === "/login" ? "active" : ""}>Login</Link>
                             </li>
                         </ul>
                     )
