@@ -15,6 +15,8 @@ import "swiper/css/navigation"
 export const Projetos = () => {
     const [projects, setProjects] = useState<Portfolio[]>([])
     const navigate = useNavigate();
+    const [total, setTotal] = useState<number>(0)
+    
 
     async function getProjects() {
         const response = await api.get<Portfolio[]>("/listProjects")
@@ -22,8 +24,18 @@ export const Projetos = () => {
         setProjects(response.data)
     }
 
+    const getProcjectNumber = async () => {
+        try {
+            const response = await api.get("/countProject")
+            setTotal(response.data.total)
+        } catch (error) {
+            console.log("Erro ao buscar a quantidade de projetos cadastrados", error)
+        }
+    }
+
     useEffect(() => {
         getProjects()
+        getProcjectNumber()
     }, [])
 
     return (
@@ -31,7 +43,7 @@ export const Projetos = () => {
             <Header />
 
             <ContentWrapper>
-                <h1>MEUS <span>PROJETOS.</span></h1>
+                <h1>MEUS <span>PROJETOS. {total}</span></h1>
 
                 <Left className="btn-prev" />
 

@@ -1,6 +1,6 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { Container, Content, Left, Gallery, Preview, ButtonAndT, ButtonEdDl } from "./style";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import type { ProjetoImagem } from "../../types/types";
 import { api } from "../../api/getApi";
 import { AuthContext } from "../../contexts/AuthContext";
@@ -11,6 +11,22 @@ export const VerProjeto = () => {
   const projeto = state?.projeto;
   const [selectedImage, setSelectedImage] = useState<ProjetoImagem | null>(null);
   const { isAuthenticated } = useContext(AuthContext);
+  const [totalImage, setTotalImage] = useState<number>(0)
+  const { id } = useParams<{ id: string }>();
+
+  useEffect(() => {
+    async function getTotalImages() {
+      if (!id) return
+
+      try {
+        const response = await api.get<{ total: number }>(`/getCountSlide/${id}`)
+        setTotalImage(response.data.total)
+      } catch (error) {
+        console.error("Erro ao buscar imagens", error)
+      }
+    }
+    getTotalImages()
+  }, [id]);
 
   if (!projeto) {
     return (
@@ -26,7 +42,7 @@ export const VerProjeto = () => {
       navigate("/login");
       return;
     }
-    
+
     const confirmDelete = window.confirm(`Tem certeza que deseja deletar o projeto "${projeto.titulo}"?`);
     if (!confirmDelete) return;
 
@@ -46,7 +62,7 @@ export const VerProjeto = () => {
           <div className="bottonAndTitle">
             <ButtonAndT>
               <button onClick={() => navigate(-1)}>Voltar</button>
-            <h1>{projeto.titulo}</h1>
+              <h1>{projeto.titulo}</h1>
             </ButtonAndT>
             <ButtonEdDl>
               <button onClick={() => navigate(`/editeProjects/${projeto._id}`)}>Editar Projeto</button>
@@ -73,7 +89,7 @@ export const VerProjeto = () => {
               <span key={index}>{tecnologias}</span>
             ))}
           </div>
-
+          <p className="slides">{totalImage} Slides</p>
           <Gallery>
             {projeto.imagens?.map((img: ProjetoImagem, index: number) => (
               <img

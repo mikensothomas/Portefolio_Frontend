@@ -87,6 +87,15 @@ export const Left = styled.div`
       }
     }
   }
+
+  .slides {
+    text-align: center;
+    color: #00ff08;
+    min-width: 100px;
+    border-radius: 999px;
+    background-color: #000;
+    border: 1px solid rgba(0, 255, 8, 0.25);
+  }
 `;
 
 export const Preview = styled.div`
