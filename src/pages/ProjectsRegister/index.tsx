@@ -66,15 +66,12 @@ export const Register = () => {
             }))));
 
 
-            const response = await api.post("/registerProjects", formData, {
+            await api.post("/registerProjects", formData, {
                 headers: { "Content-Type": "multipart/form-data" },
             });
 
-            console.log("✅ Projeto registrado:", response.data);
-            alert("Projeto registrado com sucesso!");
         } catch (error) {
             console.error(error);
-            alert("Erro ao registrar o projeto!");
         }
     };
 

@@ -27,11 +27,14 @@ export const IconeRedes = styled.div`
         gap: 20px;
     }
 `
-export const Email = styled.div`
-    color: #fff;
+export const Email = styled.a`
     display: flex;
-    gap: 10px;
+    align-items: center;
+    gap: 8px;
     cursor: pointer;
+    pointer-events: auto;
+    text-decoration: none;
+    color: inherit;
 
     &:hover {
         opacity: 0.8;
@@ -41,7 +44,7 @@ export const Email = styled.div`
         opacity: 0.4;
     }
 
-    p {
+    a {
         font-size: 20px;
         font-weight: 600;
         font-family: 'Times New Roman', Times, serif;
@@ -50,6 +53,7 @@ export const Email = styled.div`
 export const OutlineEmail = styled(MdOutlineEmail)`
     font-size: 25px;
     color: #00ff08;
+    margin-left: 30px;
 `
 export const Instagram = styled(FaFacebook)`
     color: #00ff08;

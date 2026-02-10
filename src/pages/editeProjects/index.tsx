@@ -164,7 +164,6 @@ export const EditeProjects = () => {
 
     } catch (error) {
       console.error(error);
-      alert("Erro ao editar o projeto!");
     }
   };
 

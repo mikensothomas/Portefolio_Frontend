@@ -10,7 +10,7 @@ type FormData = z.infer<typeof MessageSchema>;
 
 export const Contact = () => {
 
-    const { register, handleSubmit } = useForm<FormData>({
+    const { register, handleSubmit, reset } = useForm<FormData>({
         resolver: zodResolver(MessageSchema)
     });
 
@@ -24,15 +24,14 @@ export const Contact = () => {
                 formData.append("message", data.message);
     
     
-                const response = await api.post("/registerMessage", formData, {
+                await api.post("/registerMessage", formData, {
                     headers: { "Content-Type": "application/json" },
                 });
-    
-                console.log("✅ Mensagem registrada:", response.data);
-                alert("Mensagem registrada com sucesso!");
+
+                reset()
+
             } catch (error) {
                 console.error(error);
-                alert("Erro ao registrar a mensagem!");
             }
         };
 

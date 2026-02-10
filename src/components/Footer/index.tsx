@@ -7,9 +7,13 @@ export const Footer = () => {
                 <p></p>
             </Dash>
             <IconeRedes>
-                <Email>
+                <Email
+                    onClick={() =>
+                        (window.location.href = "mailto:mikensonthomas0@gmail.com")
+                    }
+                >
                     <OutlineEmail />
-                    <p>mikensonthomas0@gmail.com</p>
+                    <span>mikensonthomas0@gmail.com</span>
                 </Email>
                 <div>
                     <Instagram />

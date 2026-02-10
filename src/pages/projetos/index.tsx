@@ -20,7 +20,6 @@ export const Projetos = () => {
 
     async function getProjects() {
         const response = await api.get<Portfolio[]>("/listProjects")
-        console.log(response.data)
         setProjects(response.data)
     }
 
@@ -29,7 +28,7 @@ export const Projetos = () => {
             const response = await api.get("/countProject")
             setTotal(response.data.total)
         } catch (error) {
-            console.log("Erro ao buscar a quantidade de projetos cadastrados", error)
+            console.error("Erro ao buscar a quantidade de projetos cadastrados", error)
         }
     }
 

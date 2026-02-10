@@ -31,7 +31,6 @@ export const Login = () => {
       navigate("/projetos");
     } catch (error) {
       console.error(error);
-      alert("Erro ao fazer login!");
     }
   };
 

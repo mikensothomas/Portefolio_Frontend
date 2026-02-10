@@ -51,7 +51,6 @@ export const VerProjeto = () => {
       navigate(-1);
     } catch (error) {
       console.error("Erro ao deletar o projeto:", error);
-      alert("Erro ao deletar o projeto!");
     }
   }
 
