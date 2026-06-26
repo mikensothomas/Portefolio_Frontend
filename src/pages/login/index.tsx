@@ -38,7 +38,7 @@ export const Login = () => {
     <Containers>
       <Header />
       <Conatiner>
-        <h1>FALA <span>COMIGO.</span></h1>
+        <h1>LO<span>GIN.</span></h1>
         <form onSubmit={handleSubmit(onSubmit)}>
           <input {...register("email")} placeholder="Seu E-mail:" />
           <input

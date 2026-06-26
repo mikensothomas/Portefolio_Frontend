@@ -40,7 +40,6 @@ export const Projetos = () => {
     return (
         <Container>
             <Header />
-
             <ContentWrapper>
                 <h1>MEUS <span>PROJETOS. {total}</span></h1>
 

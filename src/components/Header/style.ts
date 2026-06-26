@@ -1,151 +1,3 @@
-// import styled from "styled-components";
-
-// export const ContainerHeader = styled.div`
-//     padding-top: 40px;
-//     display: flex;
-//     justify-content: space-between;
-//     padding-left: 70px;
-//     padding-right: 70px;
-    
-//     img {
-//         height: 90px;
-//         width: 170px;
-//     }
-
-//     button {
-//         margin-top: 27px;
-//         height: 50px;
-//         width: 170px;
-//         background-color: #00ff08;
-//         font-family: 'Poppins', sans-serif;
-//         font-size: 18px;
-//         font-weight: 600;
-//         cursor: pointer;
-//         border-radius: 30px;
-//         transition: .2s;
-//         border: 0;
-//     }
-
-//     button:hover {
-//         box-shadow: 0px 0px 8px #00ff08;
-//         transform: scale(1.05);
-//     }
-
-//     .logout {
-//         list-style: none;
-//         margin-top: 50px;
-//         font-size: 20px;
-//         color: #5c5c5c;
-//         font-weight: 500;
-//         cursor: pointer;
-
-//         &:hover {
-//             color: #ff0000;
-//         }
-
-//         &:active {
-//             transform: scale(0.95);
-//         }
-
-//         a {
-//             text-decoration: none;
-//             color: inherit;
-//         }
-//     }
-
-//     .messages,
-//     .register,
-//     .login {
-//         list-style: none;
-//         margin-top: 50px;
-//         font-size: 20px;
-//         color: #5c5c5c;
-//         font-weight: 500;
-//         cursor: pointer;
-
-//         &:hover {
-//             color: #37E359;
-//         }
-
-//         &:active {
-//             transform: scale(0.95);
-//         }
-
-//         a {
-//             text-decoration: none;
-//             color: inherit;
-//         }
-//     }
-
-//     .logoutUl {
-//         display: flex;
-//         gap: 20px;
-//     }
-// `
-
-// export const ContainerAndDash = styled.div`
-//     display: flex;
-//     flex-direction: column;
-//     gap: 8px;
-// `
-
-// export const Dash = styled.div`
-//     background-color: #5c5c5c;
-//     height: 1px;
-//     width: 100vw;
-// `
-
-// export const Menu = styled.div`
-//     ul {
-//         padding-top: 50px;
-//         display: flex;
-//         gap: 30px;
-//     }
-
-//     li,
-//     a {
-//         color: #5c5c5c;
-//         font-size: 20px;
-//         text-decoration: none;
-//         transition: transform 0.3s ease, color 0.3s ease;
-//         display: inline-block;
-//         position: relative;
-//     }
-
-//     a:hover {
-//         color: #37E359;
-//         transform: scale(1.10);
-//     }
-
-//     a::after {
-//         content: "";
-//         height: 2px;
-//         width: 100%;
-//         background-color: #37E359;
-//         position: absolute;
-//         bottom: -5px;
-//         left: 0;
-//         transform: scaleX(0);
-//         transform-origin: center;
-//         transition: transform 0.5s ease;
-//     }
-
-//     a.active {
-//         color: #37E359;
-//         font-weight: bold;
-//         transform: scale(1.1);
-//         transition: 0.3s;
-//     }
-
-//     a.active::after {
-//         transform: scaleX(1);
-//     }
-
-//     a:hover::after {
-//         transform: scaleX(1);
-//     }
-// `;
-
 import styled from "styled-components";
 
 export const ContainerHeader = styled.header`
@@ -153,6 +5,7 @@ export const ContainerHeader = styled.header`
   justify-content: space-between;
   align-items: center;
   padding: 40px 70px 0;
+  position: relative;
 
   img {
     width: 170px;
@@ -178,12 +31,26 @@ export const ContainerHeader = styled.header`
     box-shadow: 0 0 10px #00ff08;
   }
 
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 1001;
+  }
+
+  .hamburger span {
+    width: 25px;
+    height: 3px;
+    background: #fff;
+    transition: 0.3s;
+  }
+
   .logout,
   .messages,
   .register,
   .login {
     list-style: none;
-    margin-top: 40px;
     font-size: 20px;
     font-weight: 500;
     color: #5c5c5c;
@@ -232,19 +99,22 @@ export const ContainerHeader = styled.header`
     .messages,
     .register,
     .login {
-      font-size: 18px;
-      margin-top: 30px;
+        font-size: 15px;
+        margin-top: 0;
+        cursor: pointer;
+    }
+
+    .logout span {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        font-size: 15px;
+        line-height: 1;
     }
   }
 
   @media (max-width: 768px) {
-    flex-direction: column;
-    gap: 20px;
     padding: 20px;
-
-    img {
-      width: 140px;
-    }
 
     button {
       margin-top: 0;
@@ -264,6 +134,10 @@ export const ContainerHeader = styled.header`
     .login {
       margin-top: 0;
       font-size: 17px;
+    }
+
+    .hamburger {
+      display: flex;
     }
   }
 
@@ -297,6 +171,7 @@ export const Dash = styled.div`
   height: 1px;
   background: #5c5c5c;
 `;
+
 
 export const Menu = styled.nav`
   ul {
@@ -342,30 +217,29 @@ export const Menu = styled.nav`
     font-weight: bold;
   }
 
-  @media (max-width: 992px) {
-    ul {
-      gap: 20px;
-    }
-
-    a {
-      font-size: 18px;
-    }
-  }
-
   @media (max-width: 768px) {
-    width: 100%;
-
     ul {
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 15px;
-      padding-top: 20px;
+        position: absolute;
+        top: 90px;
+        left: 0;
+        width: 100%;
+        background: #111;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 30px 0;
+        display: none;
+        z-index: 1000;
     }
 
-    a {
-      font-size: 16px;
+    &.open ul {
+        display: flex;
     }
-  }
+
+    li {
+        font-size: 18px;
+    }
+ }
 
   @media (max-width: 480px) {
     ul {
