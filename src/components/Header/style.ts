@@ -36,6 +36,7 @@ export const ContainerHeader = styled.header`
     flex-direction: column;
     gap: 5px;
     cursor: pointer;
+    margin-top: -50px;
     z-index: 1001;
   }
 
