@@ -6,8 +6,8 @@ import { Footer } from "../../components/Footer"
 export const Sobre = () => {
     return (
         <>
+            <Header />
             <Container>
-                <Header />
                 <ImageAndText>
                     <img src={ImageMikensonThomas} alt="Mikenson thomas" />
                     <TitleAndParagraph>

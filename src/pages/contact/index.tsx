@@ -5,6 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import type z from "zod";
 import { MessageSchema, type MessageDTO } from "../../validation/messageSchema";
 import { api } from "../../api/getApi";
+import { Footer } from "../../components/Footer";
 
 type FormData = z.infer<typeof MessageSchema>;
 
@@ -48,6 +49,7 @@ export const Contact = () => {
                     <button type="submit">ENVIAR</button>
                 </form>
             </Conatiner>
+            <Footer />
         </>
     )
 }

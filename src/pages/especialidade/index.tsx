@@ -5,8 +5,8 @@ import { BackFaServer, Container, ContainerEspacialidade, FrontFaLaptopCode } fr
 export const Especialidades = () => {
     return (
         <>
+            <Header />
             <Container>
-                <Header />
                 <h1><span>MINHAS</span> ESPECIALIDADES.</h1>
                 <ContainerEspacialidade>
                     <div>

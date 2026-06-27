@@ -59,7 +59,7 @@ export const Header = () => {
 
                                 <li>
                                     <Link to="/MessagesList" onClick={closeMenu} className={location.pathname === "/messagesList" ? "active" : ""}>
-                                        Messages
+                                        Mensagens
                                     </Link>
                                 </li>
 

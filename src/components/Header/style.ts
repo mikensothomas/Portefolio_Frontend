@@ -8,7 +8,7 @@ export const ContainerHeader = styled.header`
   position: relative;
 
   img {
-    width: 170px;
+    width: 110px;
     height: auto;
   }
 
@@ -40,8 +40,8 @@ export const ContainerHeader = styled.header`
   }
 
   .hamburger span {
-    width: 25px;
-    height: 3px;
+    width: 35px;
+    height: 8px;
     background: #fff;
     transition: 0.3s;
   }

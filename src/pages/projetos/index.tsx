@@ -16,7 +16,7 @@ export const Projetos = () => {
     const [projects, setProjects] = useState<Portfolio[]>([])
     const navigate = useNavigate();
     const [total, setTotal] = useState<number>(0)
-    
+
 
     async function getProjects() {
         const response = await api.get<Portfolio[]>("/listProjects")
@@ -38,56 +38,57 @@ export const Projetos = () => {
     }, [])
 
     return (
-        <Container>
+        <>
             <Header />
-            <ContentWrapper>
-                <h1>MEUS <span>PROJETOS. {total}</span></h1>
+            <Container>
+                <ContentWrapper>
+                    <h1>MEUS <span>PROJETOS. {total}</span></h1>
 
-                <Left className="btn-prev" />
+                    <Left className="btn-prev" />
 
-                <Projects>
-                    <div className="imgBox">
-                        <Swiper
-                            modules={[Navigation]}
-                            navigation={{
-                                nextEl: ".btn-next",
-                                prevEl: ".btn-prev",
-                            }}
-                            slidesPerView={3}
-                            spaceBetween={30}
-                            loop={true}
-                            breakpoints={{
-                                0: { slidesPerView: 1, spaceBetween: 20 },
-                                600: { slidesPerView: 2, spaceBetween: 20 },
-                                900: { slidesPerView: 3, spaceBetween: 30 },
-                            }}
-                        >
-                            {projects.map((project) => (
-                                <SwiperSlide key={project._id}>
-                                    <div className="card">
-                                        <img src={project.imagem_capa} alt={project.titulo} />
-                                        <h2
-                                            onClick={() =>
-                                                navigate(`/verProjeto/${project._id}`, {
-                                                    state: { projeto: project },
-                                                })
-                                            }
-                                        >
-                                            <span>{project.titulo}</span>
-                                            <span>{project.categoria}</span>
-                                            <span>{project.status}</span>
-                                        </h2>
-                                    </div>
-                                </SwiperSlide>
-                            ))}
-                        </Swiper>
-                    </div>
-                </Projects>
+                    <Projects>
+                        <div className="imgBox">
+                            <Swiper
+                                modules={[Navigation]}
+                                navigation={{
+                                    nextEl: ".btn-next",
+                                    prevEl: ".btn-prev",
+                                }}
+                                slidesPerView={3}
+                                spaceBetween={30}
+                                loop={true}
+                                breakpoints={{
+                                    0: { slidesPerView: 1, spaceBetween: 20 },
+                                    600: { slidesPerView: 2, spaceBetween: 20 },
+                                    900: { slidesPerView: 3, spaceBetween: 30 },
+                                }}
+                            >
+                                {projects.map((project) => (
+                                    <SwiperSlide key={project._id}>
+                                        <div className="card">
+                                            <img src={project.imagem_capa} alt={project.titulo} />
+                                            <h2
+                                                onClick={() =>
+                                                    navigate(`/verProjeto/${project._id}`, {
+                                                        state: { projeto: project },
+                                                    })
+                                                }
+                                            >
+                                                <span>{project.titulo}</span>
+                                                <span>{project.categoria}</span>
+                                                <span>{project.status}</span>
+                                            </h2>
+                                        </div>
+                                    </SwiperSlide>
+                                ))}
+                            </Swiper>
+                        </div>
+                    </Projects>
 
-                <Right className="btn-next" />
-            </ContentWrapper>
-
+                    <Right className="btn-next" />
+                </ContentWrapper>
+            </Container>
             <Footer />
-        </Container>
+        </>
     );
 }

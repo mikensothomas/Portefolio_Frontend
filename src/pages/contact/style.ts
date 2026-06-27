@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Conatiner = styled.div`
   color: #fff;
   padding: 10px 400px;
+  height: 80vh;
 
   h1 {
     text-align: center;
