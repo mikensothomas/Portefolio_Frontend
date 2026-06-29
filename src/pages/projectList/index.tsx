@@ -60,10 +60,10 @@ export const VerProjeto = () => {
         <Left>
           <div className="bottonAndTitle">
             <ButtonAndT>
-              <button onClick={() => navigate(-1)}>Voltar</button>
               <h1>{projeto.titulo}</h1>
             </ButtonAndT>
             <ButtonEdDl>
+              <button onClick={() => navigate(-1)}>Voltar</button>
               <button onClick={() => navigate(`/editeProjects/${projeto._id}`)}>Editar Projeto</button>
               <button className="delete" onClick={habdleDelete}>Deletar Projeto</button>
             </ButtonEdDl>
