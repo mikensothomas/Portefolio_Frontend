@@ -222,15 +222,16 @@ export const Menu = styled.nav`
     ul {
         position: absolute;
         top: 90px;
-        left: 0;
-        width: 100%;
-        background: #111;
+        right: 0;
+        width: 40vw;
+        background: #242424;
         flex-direction: column;
         align-items: center;
         gap: 20px;
         padding: 30px 0;
         display: none;
         z-index: 1000;
+        border-radius: 5%;
     }
 
     &.open ul {
